@@ -5,9 +5,11 @@ const authRoutes = require("./routes/auth.routes");
 const authMiddleware = require("./middleware/authMiddleware");
 const agentRoutes = require("./routes/agent.routes");
 const uploadRoutes = require("./routes/upload.routes");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // connect database
 connectDB();

@@ -48,4 +48,13 @@ const getAgentTasks = async (req, res) => {
   }
 };
 
-module.exports = { createAgent, getAgentTasks };
+const getAgents = async (req, res) => {
+  try {
+    const agents = await Agent.find();
+    res.status(200).json(agents);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = { createAgent, getAgentTasks, getAgents };
